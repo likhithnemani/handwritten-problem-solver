@@ -18,7 +18,6 @@ export class MainComponent implements OnInit {
 
   preview(files: any) {
     if (files.length === 0) return;
-
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = 'Only images are supported.';
@@ -36,9 +35,9 @@ export class MainComponent implements OnInit {
 
   predictSolution(url: any) {
     console.log(url)
-    // var x = 
+    url = url.split(",");
     const formData = new FormData();
-    formData.append('predict',url);
+    formData.append('predict',url[1]);
     this.http
       .post(environment.baseURL + 'predict', formData)
       .subscribe((res) => {
