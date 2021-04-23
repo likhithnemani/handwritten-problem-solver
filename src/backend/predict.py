@@ -186,6 +186,8 @@ def predict_solution(img):
         else:
             x, t = solve_linear_equation(s)
     os.remove('temp.png')
+    print(x)
+    print(t)
     return json.dumps({
         'solution': x,
         'equation': t
