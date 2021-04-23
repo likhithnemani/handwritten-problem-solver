@@ -1,0 +1,51 @@
+<div
+  class="container d-flex align-items-center justify-content-center"
+  style="height: 100vh"
+>
+  <div class="card d-flex align-items-center justify-content-center">
+    <div class="text-center" *ngIf="imgURL === ''">
+      <div class="upload">
+        <label for="file-input"><span class="custom-button">+</span></label>
+        <input
+          id="file-input"
+          #file
+          type="file"
+          accept="image/*"
+          (change)="preview(file.files)"
+        />
+      </div>
+      <p class="text-white">Click on '+' to add an Image</p>
+    </div>
+    <div
+      class="d-flex align-items-center justify-content-center"
+      *ngIf="imgURL !== ''"
+    >
+      <img class="selected-image" [src]="imgURL" alt="" />
+    </div>
+    <div *ngIf="imgURL !== ''">
+      <button class="btn btn-primary p-2 m-2" (click)="predictSolution(imgURL)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Solve
+      </button>
+      <button class="btn btn-secondary p-2 m-2" (click)="imgURL = ''">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

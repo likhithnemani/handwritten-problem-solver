@@ -1,0 +1,11 @@
+<nav>
+  <h2 class="brand">Problem Solver</h2>
+  <div class="nav-right nav-links large-screen-nav" [ngClass]="navStatus ? 'responsive' : 'nav-links'">
+    <p>Home</p>
+    <p>Code</p>
+    <p>About</p>
+  </div>
+  <div class="nav-right small-screen-nav">
+    <i class="icon" (click)="toggle()"><img src="../../assets/images/bars.svg" alt="" height="30px"></i>
+  </div>
+</nav>
