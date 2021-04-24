@@ -35,9 +35,9 @@ dic = ['3',
 'pi',
 ')',
 '8',  
-'times',   
+'*',   
 '-',   
-'forward_slash',
+'/',
 '2',
 'z',
 '[']
@@ -147,6 +147,7 @@ def solve_linear_equation(s):
   y = t
   t = t.replace('π','3.14')
   p = t.split('=')
+  print(p)
   if len(p) >= 2:
     t = p[0]
     if p[1] != '+' or p[1] != '-':
@@ -184,7 +185,7 @@ def predict_solution(img):
     else:
         print(s)
         print(len(s)-s.find('='))
-        if len(s)-s.find('=') == 0:
+        if len(s)-s.find('=')-1 == 0:
             x, t = basic_calculation(s[0:len(s)-1])
         else:
             x, t = solve_linear_equation(s)

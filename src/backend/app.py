@@ -24,18 +24,16 @@ def predict():
     if request.form:
         operation = BytesIO(base64.urlsafe_b64decode(request.form['predict']))
         x,t = predict_solution(operation)
-        return make_response(jsonify(
-            json.dumps({
-                'equation': t,
-                'solution': x
-            })
-        ),200)
+        if type(x) == list:
+            x = ",".join(str(i) for i in x)
+        return make_response(jsonify({
+            "solution": x,
+            "equation": t
+        }),200)
     else:
-        return json.dumps({
-            'success': False,
-            'status': 500,
+        return make_response(jsonify({
             'message': 'No file received'
-        })
+        }),500)
 
 if __name__ == '__main__':
     app.run(debug=True,port=6003,host="0.0.0.0")
