@@ -25,3 +25,14 @@
   border: 5px solid black;
   border-radius: 5px;
 }
+
+.canvas_wrapper_div.canvas_whiteboard_buttons {
+  left: 0 !important;
+}
+
+@media screen and (min-width: 2000px) {
+  .canvas_wrapper_div.canvas_whiteboard_buttons {
+    right: auto !important;
+    left: 0 !important;
+  }
+}

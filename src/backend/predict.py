@@ -17,30 +17,30 @@ from keras.utils import np_utils
 from keras import backend as K
 K.set_image_data_format('channels_last')
 
-dic = ['1',
-'+',
-'pi',
-'9',
-'[',
-'!',
-'2', 
-'0',
-'4',
-'3',
-'6',
-'forward_slash',
-'8', 
-')',
-'X',
-'(',
-'-',
-']',
-'times',
-'z',
-'5',
-'e',  
+dic = ['3',   
+'(',   
+'1',   
+'4',   
+'!',   
 'A',   
-'7']
+'7',   
+'9',   
+'0',   
+'+',   
+'6',   
+'5',   
+'X',   
+'e',   
+']',   
+'pi',
+')',
+'8',  
+'times',   
+'-',   
+'forward_slash',
+'2',
+'z',
+'[']
 
 
 def load_model():
@@ -143,24 +143,27 @@ def reconstruct_equation(s):
 
 
 def solve_linear_equation(s):
-    t = reconstruct_equation(s)
-    t = t.replace('π', '3.14')
-    p = t.split('=')
-    if len(p) >= 2:
-        t = p[0]
-        if p[1] != '0':
-            if p[1][0] != '+' or p[1][0] != '-':
-                p[1] = '+' + p[1]
-            for i in range(0, len(p[1])):
-                if p[1][i] == '-':
-                    t = t + '+'
-                elif p[1][i] == '+':
-                    t = t + '-'
-                else:
-                    t = t + p[1][i]
-    A, e, z = symbols('A e z')
-    sol = solve(simplify(t))
-    return sol, t
+  t = reconstruct_equation(s)
+  y = t
+  t = t.replace('π','3.14')
+  p = t.split('=')
+  if len(p) >= 2:
+    t = p[0]
+    if p[1] != '+' or p[1] != '-':
+      p[1] = '+' + p[1] 
+    if p[1] != '0':
+      for i in range(0,len(p[1])):
+        if p[1][i] == '-':
+          t = t + '+'
+        elif p[1][i] == '+':
+          t = t + '-'
+        else:
+          t = t + p[1][i]
+  
+  A,e,z = symbols('A e z')
+  sol = solve(simplify(t))
+  print(t)
+  return sol,y
 
 
 def basic_calculation(s):
@@ -186,9 +189,4 @@ def predict_solution(img):
         else:
             x, t = solve_linear_equation(s)
     os.remove('temp.png')
-    print(x)
-    print(t)
-    return json.dumps({
-        'solution': x,
-        'equation': t
-    })
+    return x,t

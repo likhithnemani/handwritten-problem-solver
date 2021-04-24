@@ -10,6 +10,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { NgWhiteboardModule } from 'ng-whiteboard';
+import { CanvasWhiteboardModule } from 'ng2-canvas-whiteboard';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgWhiteboardModule,
+    CanvasWhiteboardModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
