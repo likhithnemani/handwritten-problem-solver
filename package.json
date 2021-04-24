@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~11.1.0",
     "@angular/router": "~11.1.0",
     "@angular/service-worker": "~11.1.0",
+    "@types/bootstrap": "^5.0.12",
+    "bootstrap": "^5.0.0-beta3",
     "canvas-drawing-board": "^1.0.7",
     "ng-whiteboard": "^1.4.6",
     "ng2-canvas-whiteboard": "^4.0.2",

@@ -1,8 +1,9 @@
 <nav>
   <h2 class="brand">Problem Solver</h2>
   <div class="nav-right nav-links large-screen-nav" [ngClass]="navStatus ? 'responsive' : 'nav-links'">
-    <p>Home</p>
-    <p>Code</p>
+    <p (click)="commonService.mode = 'upload'">Home</p>
+    <p (click)="commonService.mode = 'canvas'">Canvas</p>
+    <p (click)="navigateToGH()">Code</p>
     <p>About</p>
   </div>
   <div class="nav-right small-screen-nav">

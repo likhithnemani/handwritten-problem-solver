@@ -12,6 +12,8 @@ import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgWhiteboardModule } from 'ng-whiteboard';
 import { CanvasWhiteboardModule } from 'ng2-canvas-whiteboard';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { CanvasWhiteboardModule } from 'ng2-canvas-whiteboard';
     HttpClientModule,
     NgWhiteboardModule,
     CanvasWhiteboardModule,
+    FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

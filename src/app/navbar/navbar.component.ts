@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,17 @@ export class NavbarComponent implements OnInit {
 
   navStatus = false;
 
-  constructor() { }
+  constructor(public commonService: CommonService) { }
 
   ngOnInit(): void {
   }
 
   toggle() {
     this.navStatus = !this.navStatus; 
+  }
+
+  navigateToGH() {
+    window.location.href = "https://github.com/likhithnemani/handwritten-problem-solver";
   }
 
 }
