@@ -1,9 +1,13 @@
 <app-loader *ngIf="load"></app-loader>
-<div *ngIf="!load"
+<div
+  *ngIf="!load"
   class="container d-flex align-items-center justify-content-center"
   style="height: 100vh"
 >
-  <div *ngIf="commonService.mode === 'upload'" class="card d-flex align-items-center justify-content-center">
+  <div
+    *ngIf="commonService.mode === 'upload'"
+    class="card d-flex align-items-center justify-content-center"
+  >
     <div class="text-center" *ngIf="imgURL === ''">
       <div class="upload">
         <label for="file-input"><span class="custom-button">+</span></label>
@@ -24,12 +28,7 @@
       <img class="selected-image" [src]="imgURL" alt="" />
     </div>
     <div *ngIf="imgURL !== ''">
-      <button
-        class="btn btn-primary p-2 m-2"
-        (click)="predictSolution(imgURL)"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
+      <button class="btn btn-primary p-2 m-2" (click)="predictSolution(imgURL)">
         Solve
       </button>
       <button class="btn btn-secondary p-2 m-2" (click)="imgURL = ''">
@@ -38,8 +37,9 @@
     </div>
   </div>
 
-  <div *ngIf="commonService.mode === 'canvas'" class="row" style="width: 100%;">
-    <canvas-whiteboard style="width: 100%; height: 50vh; max-height: 500px"
+  <div *ngIf="commonService.mode === 'canvas'" class="row" style="width: 100%">
+    <canvas-whiteboard
+      style="width: 100%; height: 50vh; max-height: 500px"
       #canvasWhiteboard
       [drawButtonClass]="'drawButtonClass'"
       [drawButtonText]="'Draw'"
@@ -61,7 +61,8 @@
 
 <!-- Modal -->
 <div
-  class="modal myModal fade" #myModal
+  class="modal myModal fade"
+  #myModal
   id="staticBackdrop"
   data-bs-backdrop="static"
   data-bs-keyboard="false"
@@ -85,7 +86,12 @@
           <label for="">Equation Predicted</label>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" [(ngModel)]="predictedValue.equation" disabled/>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="predictedValue.equation"
+            disabled
+          />
           <button
             class="btn btn-outline-secondary"
             type="button"
@@ -99,7 +105,12 @@
           <label for="">Solution</label>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" [(ngModel)]="predictedValue.solution" disabled/>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="predictedValue.solution"
+            disabled
+          />
           <button
             class="btn btn-outline-secondary"
             type="button"
